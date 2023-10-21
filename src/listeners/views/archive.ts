@@ -13,7 +13,7 @@ export default async <T extends SlackViewAction = SlackViewAction>(
   try {
     await archive.add(body, `${body.type}`)
       .then(
-        (n) => console.info(n),
+        (n) => console.info('Archived to', n.filename),
         (e) => console.error(e),
       );
   } catch (error) {

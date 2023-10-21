@@ -1,7 +1,8 @@
 import * as fs from 'fs';
 
 const create = (baseDir: string) => {
-  const add = async (event: unknown, hint: string): Promise<string> => {
+  const add = async (event: unknown, hint: string):
+    Promise<{ basename: string; filename: string; }> => {
     const now = new Date().toISOString();
 
     const tail = `${now}.${hint}.json`;
@@ -14,7 +15,7 @@ const create = (baseDir: string) => {
     return fs.promises.writeFile(tmpFile, content, { mode: 0 })
       .then(() => fs.promises.chmod(tmpFile, 0o0600))
       .then(() => fs.promises.rename(tmpFile, finalFile))
-      .then(() => tail)
+      .then(() => ({ basename: tail, filename: finalFile }))
       .finally(() => fs.promises.unlink(tmpFile)
         .catch((err) => {
           if (err.code === 'ENOENT') return;

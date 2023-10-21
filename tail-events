@@ -1,0 +1,2 @@
+tail -F service/log/main/current | ruby -lne 'f = $_[/Archived to (.*)/, 1];
+if f ; puts f ; system "jq -S .", in: f ; end'

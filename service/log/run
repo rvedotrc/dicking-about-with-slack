@@ -1,0 +1,2 @@
+#!/bin/bash
+exec multilog t n20 s1000000 ./main

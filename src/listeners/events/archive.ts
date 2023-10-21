@@ -7,9 +7,9 @@ export default async <T extends string = string>(
   { body }: AllMiddlewareArgs & SlackEventMiddlewareArgs<T>,
 ) => {
   try {
-    await archive.add(body, `${body.type}`)
+    await archive.add(body, `${body.type}.${body.event.type}`)
       .then(
-        (n) => console.info(n),
+        (n) => console.info('Archived to', n.filename),
         (e) => console.error(e),
       );
   } catch (error) {

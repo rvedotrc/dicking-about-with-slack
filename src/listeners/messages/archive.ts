@@ -10,7 +10,7 @@ export default async (
     console.debug('archive message');
     await archive.add(body, `${body.type}`)
       .then(
-        (n) => console.info(n),
+        (n) => console.info('Archived to', n.filename),
         (e) => console.error(e),
       );
   } catch (error) {

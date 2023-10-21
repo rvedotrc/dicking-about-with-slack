@@ -10,7 +10,7 @@ export default async (
     await ack();
     await archive.add(body, `${body.type}`)
       .then(
-        (n) => console.info(n),
+        (n) => console.info('Archived to', n.filename),
         (e) => console.error(e),
       );
   } catch (error) {

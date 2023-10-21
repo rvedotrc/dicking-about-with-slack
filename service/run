@@ -1,0 +1,7 @@
+#!/bin/bash
+exec 2>&1
+set -e
+cd /Users/rachel/git/github.com/slack-samples/bolt-ts-starter-template
+pwd
+ls -al dist/
+exec with-node - node dist/app.js

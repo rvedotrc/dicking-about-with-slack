@@ -24,7 +24,9 @@ const feed = (onEvent: (e: GitHubWebhookEvent) => Promise<void>) => {
             throw err;
           }),
         archiver.add(event, hint)
-          .then((name) => console.info(`Archived as ${name}`))
+          .then(
+            (n) => console.info('Archived to', n.filename),
+          )
           .catch((err) => console.error('Error from archiver:', err)),
       ]);
     },
