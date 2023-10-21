@@ -14,13 +14,13 @@ const registerListeners = (app: App) => {
   shortcuts.register(app);
   views.register(app);
 
-  app.event('hello', async (): Promise<void> => {
-    console.debug('got hello, listing channels');
-    app.client.channels.info({ channel: 'general' })
-      .then((r) => {
-        console.debug({ r });
-      });
-  });
+  // app.event('hello', async (): Promise<void> => {
+  //   console.debug('got hello, listing channels');
+  //   app.client.channels.info({ channel: 'general' })
+  //     .then((r) => {
+  //       console.debug({ r });
+  //     });
+  // });
 };
 
 export default registerListeners;

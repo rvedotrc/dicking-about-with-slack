@@ -9,6 +9,8 @@ const create = (baseDir: string) => {
     const tmpFile = `${baseDir}/.tmp.${tail}`;
     const content = `${JSON.stringify(event)}\n`;
 
+    console.debug(`Trying to archive to ${finalFile}`);
+
     return fs.promises.writeFile(tmpFile, content, { mode: 0 })
       .then(() => fs.promises.chmod(tmpFile, 0o0600))
       .then(() => fs.promises.rename(tmpFile, finalFile))
