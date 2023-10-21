@@ -4,40 +4,93 @@
         "minor_version": 1
     },
     "display_information": {
-        "name": "Bolt Template App"
+        "name": "display_information.name",
+        "description": "This is the description",
+        "long_description": "This is the long description",
+        "background_color": "#838"
     },
     "features": {
         "app_home": {
             "home_tab_enabled": true,
-            "messages_tab_enabled": false,
-            "messages_tab_read_only_enabled": true
+            "messages_tab_enabled": true,
+            "messages_tab_read_only_enabled": false
         },
         "bot_user": {
-            "display_name": "Bolt Template App",
+            "display_name": "bot_user_display_name",
             "always_online": false
         },
         "shortcuts": [
             {
-                "name": "Run sample shortcut",
+                "name": "name of the global shortcut",
                 "type": "global",
-                "callback_id": "sample_shortcut_id",
-                "description": "Runs a sample shortcut"
+                "callback_id": "sample_global_shortcut_id",
+                "description": "Runs a sample global shortcut"
+            },
+            {
+                "name": "name of the message shortcut",
+                "type": "message",
+                "callback_id": "sample_message_shortcut_id",
+                "description": "Runs a sample message shortcut"
             }
         ],
         "slash_commands": [
             {
                 "command": "/sample-command",
                 "description": "Runs a sample command",
-                "should_escape": false
+                "should_escape": true,
+                "url": null,
+                "usage_hit": "This is the usage hint"
             }
         ]
     },
     "oauth_config": {
         "scopes": {
             "bot": [
+                "app_mentions:read",
+                "bookmarks:read",
+                "bookmarks:write",
+                "calls:read",
+                "calls:write",
                 "channels:history",
+                "channels:join",
+                "channels:manage",
+                "channels:read",
+                "channels:write.invites",
+                "channels:write.topic",
                 "chat:write",
-                "commands"
+                "chat:write.customize",
+                "chat:write.public",
+                "commands",
+                "conversations.connect:manage",
+                "conversations.connect:read",
+                "conversations.connect:write",
+                "dnd:read",
+                "emoji:read",
+                "files:read",
+                "files:write",
+                "groups:history",
+                "groups:read",
+                "groups:write",
+                "groups:write.invites",
+                "groups:write.topic",
+                "im:read",
+                "im:write",
+                "im:write.invites",
+                "im:write.topic",
+                "incoming-webhook",
+                "links.embed:write",
+                "links:read",
+                "links:write",
+                "metadata.message:read",
+                "mpim:read",
+                "mpim:history",
+                "mpim:write",
+                "mpim:write.invites",
+                "mpim:write.topic",
+                "im:history",
+                "reactions:read",
+                "reactions:write",
+                "users:write"
             ]
         }
     },
@@ -45,11 +98,39 @@
         "event_subscriptions": {
             "bot_events": [
                 "app_home_opened",
-                "message.channels"
-            ]
+                "channel_archive",
+                "channel_created",
+                "channel_deleted",
+                "channel_history_changed",
+                "channel_id_changed",
+                "channel_left",
+                "channel_rename",
+                "channel_shared",
+                "channel_unarchive",
+                "channel_unshared",
+                "member_joined_channel",
+                "member_left_channel",
+                "message.app_home",
+                "message.channels",
+                "message.groups",
+                "message.im",
+                "message.mpim",
+                "message_metadata_deleted",
+                "message_metadata_posted",
+                "message_metadata_updated"
+            ],
+            "user_events": [],
+            "metadata_subscriptions": [
+                { "app_id": "*", "event_type": "message_metadata_deleted" },
+                { "app_id": "*", "event_type": "message_metadata_posted" },
+                { "app_id": "*", "event_type": "message_metadata_updated" }
+            ],
+            "request_url": null
         },
         "interactivity": {
-            "is_enabled": true
+            "is_enabled": true,
+            "request_url": null,
+            "message_menu_options_url": null
         },
         "org_deploy_enabled": false,
         "socket_mode_enabled": true,

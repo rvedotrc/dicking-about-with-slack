@@ -1,0 +1,1 @@
+exec ruby -rjson -lne 'puts $_; if json = $_[/(?:Received a message on the WebSocket|Sending a WebSocket message): (.*)$/, 1] ; puts JSON.pretty_generate(JSON.parse(json)) ; end'
